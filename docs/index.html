@@ -69,7 +69,7 @@
   .top a.link:hover { color: var(--text); }
 
   /* 첫 화면 */
-  .hero { display: grid; gap: 32px; padding: 28px 0 56px; }
+  .hero { display: grid; gap: 32px; padding-block: 28px 56px; }
   .hero h1 { font-size: clamp(30px, 6.2vw, 50px); line-height: 1.22; letter-spacing: -0.03em; font-weight: 750; margin: 0 0 16px; }
   .hero p.sub { font-size: 18px; color: var(--muted); margin: 0 0 28px; max-width: 34em; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -155,7 +155,7 @@
 
   @media (min-width: 880px) {
     .wrap { padding: 0 32px; }
-    .hero { grid-template-columns: 1.08fr .92fr; gap: 56px; padding: 56px 0 84px; align-items: center; }
+    .hero { grid-template-columns: 1.08fr .92fr; gap: 56px; padding-block: 56px 84px; align-items: center; }
     section { padding: 64px 0; }
     .rules { grid-template-columns: 1fr 1fr; }
     .cautions { grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
@@ -164,6 +164,7 @@
     html { scroll-behavior: auto; }
     .btn, .copy { transition: none; }
   }
+  /* v4 */
 </style>
 </head>
 <body>
