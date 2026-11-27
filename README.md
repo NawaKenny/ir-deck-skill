@@ -55,6 +55,28 @@ Claude Code에서 평소 말로 요청하면 됩니다. 스킬 이름을 말하�
 
 네 줄(무엇을, 누구에게, 얼마에, 어디서)을 받고, 세 관점의 검토 → 경쟁사 조사 → 모의 구매자 패널 → 손익 계산 순서로 재료를 만든 뒤 덱을 씁니다. 재료를 만드는 데는 [founder-skill](https://github.com/Jakeschincariol/founder-skill)(Jake Schincariol, MIT)을 씁니다. 이 저장소에는 들어 있지 않으니 따로 설치해야 합니다. 설치돼 있지 않으면 가설 덱 대신 일반 "만들기"로 진행합니다.
 
+### founder-skill 설치
+
+```bash
+git clone https://github.com/Jakeschincariol/founder-skill.git
+```
+
+```bash
+cp -r founder-skill/skills/founder-* ~/.claude/skills/
+```
+
+파이썬 3.8 이상이 필요하고 따로 설치할 패키지는 없습니다. 플러그인으로 설치하면 스킬 이름 앞에 꼬리표가 붙으므로, 가설 덱과 같이 쓸 때는 위처럼 폴더째 복사하는 쪽을 권합니다. 다른 사람이 만든 스킬이니 설치 전에 저장소를 한 번 확인하세요.
+
+가설 덱이 쓰는 것은 다섯 개입니다.
+
+| 스킬 | 가설 덱에서 하는 일 |
+|---|---|
+| `founder-board` | 아이디어를 세 가지 관점으로 따져 보고 위험을 뽑는다 |
+| `founder-competitors` | 경쟁 서비스와 가격을 링크와 함께 찾는다 |
+| `founder-consumer` | 가상 구매자에게 소개 문구를 보여 주고 살지 묻는다 |
+| `founder-cfo` | 한 건당 남는 돈과 손익분기를 계산한다 |
+| `founder-launch` | 모의 결과를 대신할 실제 시험을 고른다 |
+
 가설 덱은 제출용이 아닙니다.
 
 - 모의 패널의 숫자에는 `[모의]`가 붙고, PoC나 트랙션이라고 부르지 않습니다.
