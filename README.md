@@ -29,6 +29,8 @@
 
 ## 설치
 
+설치 안내 페이지: https://nawakenny.github.io/ir-deck-skill/
+
 ```bash
 git clone https://github.com/NawaKenny/ir-deck-skill.git
 ```
