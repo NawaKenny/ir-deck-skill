@@ -109,11 +109,11 @@
   .steps p { margin: 0 0 10px; color: var(--muted); }
   .steps .body { min-width: 0; }
 
-  .code { position: relative; background: var(--code-bg); border-radius: var(--radius); margin: 0 0 10px; }
-  .code pre { margin: 0; padding: 16px 84px 16px 16px; overflow-x: auto; color: var(--code-text); font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, "D2Coding", monospace; white-space: pre; }
+  .code { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; background: var(--code-bg); border: 1px solid var(--line); border-radius: var(--radius); margin: 0 0 10px; }
+  .code pre { margin: 0; padding: 16px; overflow-x: auto; color: var(--code-text); font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, "D2Coding", monospace; white-space: pre; }
   .code.wrapline pre { white-space: pre-wrap; word-break: break-word; font-family: inherit; font-size: 15.5px; line-height: 1.6; }
   .copy {
-    position: absolute; top: 9px; right: 9px; min-height: 32px; padding: 0 12px; border-radius: 8px;
+    margin: 10px 10px 10px 0; min-height: 34px; padding: 0 12px; border-radius: 8px;
     background: rgb(255 255 255 / .1); color: #f1f6f4; border: 1px solid rgb(255 255 255 / .16);
     font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: background-color .15s ease;
   }
@@ -136,7 +136,7 @@
   .ask .when { margin: 0 0 12px; color: var(--muted); font-size: 15.5px; }
   .ask .say { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; background: var(--accent-soft); border-radius: 8px; padding: 12px 12px 12px 14px; }
   .ask .say p { margin: 0; font-size: 15.5px; line-height: 1.55; }
-  .ask .copy { position: static; flex: none; background: var(--surface); color: var(--text); border-color: var(--line); }
+  .ask .copy { margin: 0; flex: none; background: var(--surface); color: var(--text); border-color: var(--line); }
   .ask .copy:hover { border-color: var(--muted); background: var(--surface); }
   .ask .copy.done { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
   .ask .need { margin: 12px 0 0; font-size: 14.5px; color: var(--muted); }
