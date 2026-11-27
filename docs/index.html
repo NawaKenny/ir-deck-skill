@@ -164,7 +164,7 @@
     html { scroll-behavior: auto; }
     .btn, .copy { transition: none; }
   }
-  /* v4 */
+  /* v5 */
 </style>
 </head>
 <body>
@@ -317,24 +317,28 @@
 </div>
 
 <script>
-  // 복사 버튼: 눌렀다는 것을 2초 동안 알려 준다.
+  // 복사 버튼. 클립보드 권한이 막힌 앱 안 브라우저에서도 되도록 차례로 시도한다.
   document.querySelectorAll('.copy').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var el = document.getElementById(btn.dataset.copy);
       if (!el) return;
       var text = el.textContent.trim();
-      var done = function (ok) {
-        btn.textContent = ok ? '복사됨' : '길게 눌러 복사';
+      var show = function (label, ok) {
+        btn.textContent = label;
         btn.classList.toggle('done', ok);
-        setTimeout(function () { btn.textContent = '복사'; btn.classList.remove('done'); }, 2000);
+        setTimeout(function () { btn.textContent = '복사'; btn.classList.remove('done'); }, 2200);
       };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
-      } else {
+      var bySelection = function () {
         var range = document.createRange(); range.selectNodeContents(el);
         var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
         var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
-        sel.removeAllRanges(); done(ok);
+        if (ok) { sel.removeAllRanges(); show('복사됨', true); }
+        else { show('선택됨, 길게 눌러 복사', false); } // 글자를 선택해 둔 채로 둔다
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { show('복사됨', true); }, bySelection);
+      } else {
+        bySelection();
       }
     });
   });
